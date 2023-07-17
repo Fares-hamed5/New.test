@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>New 1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='Style/Style.css'>
+    <script src='Style/jquery-3.5.1.min.js'></script>
+</head>
+<body id="content"> 
+
+
+
+
+  <div class="home-content">
+    <!-- محتوى الصفحة الرئيسية --> 
+    
+     <h1>الرئيسية</h1>
+
+  </div>
+
+  <div class="vid-content">
+    <!-- محتوى الفيديو -->    
+
+     <h1>الفديوهات</h1>
+
+</div>
+
+  <div class="books-content">
+    <!-- محتوى الكتب -->
+
+     <h1>الكتب</h1>
+
+  </div>
+
+  <div class="about-content">
+    <!-- محتوى حول --> 
+
+     <h1>نبذة بسيطة والتواصل</h1>
+
+  </div>
+
+
+   <!-- Loading -->
+
+   <div id="loading-screen">
+    <div class="loader"></div>
+    <p class="Lod">Loading...</p>
+  </div>
+
+    <!-- nav -->
+<div class="navbar">
+  <input type="radio" class="Home" name="I1" checked>
+  <input type="radio" class="Vid" name="I1">
+  <input type="radio" class="Books" name="I1">  
+  <input type="radio" class="About" name="I1">
+  <input type="checkbox"  class="Dark" checked>
+</div>
+<div class="navbar2"></div>
+  <input type="checkbox" class="Menu" >
+
+
+
+
+
+<script>
+  const homeRadio = document.querySelector('.Home');
+  const vidRadio = document.querySelector('.Vid');
+  const booksRadio = document.querySelector('.Books');
+  const aboutRadio = document.querySelector('.About');
+
+  const homeContent = document.querySelector('.home-content');
+  const vidContent = document.querySelector('.vid-content');
+  const booksContent = document.querySelector('.books-content');
+  const aboutContent = document.querySelector('.about-content');
+
+  // استعادة حالة الراديو المحددة من التخزين المحلي
+  const selectedRadio = localStorage.getItem('selectedRadio');
+  if (selectedRadio) {
+    // إخفاء جميع العناصر
+    homeContent.style.display = 'none';
+    vidContent.style.display = 'none';
+    booksContent.style.display = 'none';
+    aboutContent.style.display = 'none';
+
+    // إظهار العنصر المحدد بناءً على القيمة المسترجعة من التخزين المحلي
+    switch (selectedRadio) {
+      case 'Home':
+        homeContent.style.display = 'block';
+        homeRadio.checked = true;
+        break;
+      case 'Vid':
+        vidContent.style.display = 'block';
+        vidRadio.checked = true;
+        break;
+      case 'Books':
+        booksContent.style.display = 'block';
+        booksRadio.checked = true;
+        break;
+      case 'About':
+        aboutContent.style.display = 'block';
+        aboutRadio.checked = true;
+        break;
+      default:
+        break;
+    }
+  } else {
+    // عرض العنصر الافتراضي عند زيارة الموقع لأول مرة
+    homeContent.style.display = 'block';
+    homeRadio.checked = true;
+  }
+
+  homeRadio.addEventListener('change', () => {
+    homeContent.style.display = 'block';
+    vidContent.style.display = 'none';
+    booksContent.style.display = 'none';
+    aboutContent.style.display = 'none';
+    // حفظ حالة الراديو المحددة في التخزين المحلي
+    localStorage.setItem('selectedRadio', 'Home');
+  });
+
+  vidRadio.addEventListener('change', () => {
+    homeContent.style.display = 'none';
+    vidContent.style.display = 'block';
+    booksContent.style.display = 'none';
+    aboutContent.style.display = 'none';
+    // حفظ حالة الراديو المحددة في التخزين المحلي
+    localStorage.setItem('selectedRadio', 'Vid');
+  });
+
+  booksRadio.addEventListener('change', () => {
+    homeContent.style.display = 'none';
+    vidContent.style.display = 'none';
+    booksContent.style.display = 'block';
+    aboutContent.style.display = 'none';
+    // حفظ حالة الراديو المحددة في التخزين المحلي
+    localStorage.setItem('selectedRadio', 'Books');
+  });
+
+  aboutRadio.addEventListener('change', () => {
+    homeContent.style.display = 'none';
+    vidContent.style.display = 'none';
+    booksContent.style.display = 'none';
+    aboutContent.style.display = 'block';
+    // حفظ حالة الراديو المحددة في التخزين المحلي
+    localStorage.setItem('selectedRadio', 'About');
+  });
+
+
+  
+</script>
+
+
+
+<script>
+
+window.addEventListener("load", function() {
+  var loadingScreen = document.getElementById("loading-screen");
+  var content = document.getElementById("content");
+
+  loadingScreen.style.display = "none";
+  content.style.display = "block";
+});
+
+
+$(document).ready(function() {
+  $('.Menu').change(function() {
+    if (this.checked) {
+      $('.navbar').css('left', '0px');
+      $('.navbar2').css('left', '0px');
+    } else {
+      $('.navbar').css('left', '-45px');
+      $('.navbar2').css('left', '-45px');
+    }
+  });
+});
+
+
+
+$(document).ready(function() {
+   
+   const checkbox = $('.Dark');
+  
+   checkbox.change(function() {
+     
+       if (this.checked) {
+       $('body').css({
+
+        'background': '#1f1f1f',
+        'color': '#ffffff'
+
+       });
+
+       $('.home-content, .vid-content, .books-content, .about-content').css(
+{        
+        'background': '#ffffff12',
+       
+      });
+
+ $('*').css({
+         'color': '#ffffff'
+       });
+      
+     } 
+     
+     else {
+       $('body').css({
+        
+        'background': '#b1b1b1f7',
+        'color': '#000000'
+       
+      });
+
+$('.home-content, .vid-content, .books-content, .about-content').css(
+  
+{
+        
+        'background': '#ffffff12',
+       
+      });
+
+       $('*').css({
+         'color': '#000000'
+       });
+     }
+   });
+ });
+
+</script>
+
+</html>

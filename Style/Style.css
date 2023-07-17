@@ -1,0 +1,431 @@
+body{
+    text-align: right;
+    z-index: 1; 
+    padding: 0%;
+    padding-left:60px ;
+    padding-right: 1% ;
+    margin: 0%;
+    overflow-x: hidden;
+    background: #1f1f1f;
+    transition: .5s;
+
+}
+
+
+*{
+
+  color: #ffffff;
+
+ }
+
+ *:active {
+
+  outline: none; 
+
+}
+
+
+
+.home-content,
+.vid-content,
+.books-content,
+.about-content {
+  display: none;
+  top: 0%;
+  right: 0%;
+  width: calc(100% - 65px);
+  height: 87%;
+  padding-top: 60px;
+  padding-bottom: 60px;  
+  padding-right: 10px;
+  position: absolute;
+  text-align: right;
+  direction: rtl;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: #ffffff05;
+  scroll-behavior: smooth;
+
+}
+
+/* استهدف شريط التمرير */
+.home-content::-webkit-scrollbar,
+.vid-content::-webkit-scrollbar,
+.books-content::-webkit-scrollbar,
+.about-content::-webkit-scrollbar {
+  width: 1px; /* عرض الشريط */
+}
+
+/* استهدف مقبض التمرير */
+.home-content::-webkit-scrollbar-thumb,
+.vid-content::-webkit-scrollbar-thumb,
+.books-content::-webkit-scrollbar-thumb,
+.about-content::-webkit-scrollbar-thumb {
+
+}
+
+/* استهدف مسار شريط التمرير */
+.home-content::-webkit-scrollbar-track,
+.vid-content::-webkit-scrollbar-track,
+.books-content::-webkit-scrollbar-track,
+.about-content::-webkit-scrollbar-track {
+  background-color: #f1f1f1b4; /* لون مسار شريط التمرير */
+}
+
+iframe {
+  width: 50%;
+  height: 30%;
+  margin: auto;
+  display: block;
+  border-radius: 10%;
+  box-shadow: 0px 5px 15px #5e5e5e ;
+}
+
+
+.home-content {
+  /* تنسيق محتوى الصفحة الرئيسية */
+
+ 
+
+}
+
+.vid-content {
+  /* تنسيق محتوى الفيديو */
+
+
+}
+
+.books-content {
+  /* تنسيق محتوى الكتب */
+ 
+}
+
+.about-content {
+  /* تنسيق محتوى حول */
+
+}
+
+
+
+/* Loading */
+
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1f1f1f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+.Lod{
+
+  font-family:  Lodfont;
+  font-weight: bold;
+  letter-spacing:5px;
+  margin-top:30px;
+  font-size: 20px;
+  animation: animated-gradient 4s linear infinite;
+}
+.loader {
+  
+  border: 16px solid #f3f3f311;
+  border-top: 16px groove #3498db ;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 3s linear infinite;
+}
+/* nav */
+
+.navbar2 {
+  display: inline-flex;
+  position: fixed;
+  flex-direction: column;
+  background-color: #4949494d;
+  box-shadow: #747474 0px 0px 12px 0px;
+  border-right: groove 3px #9e9e9e;
+  backdrop-filter: blur;
+  width: 45px;
+  height: 100%;
+  left: -45px;
+  top: 0px;
+  z-index: 2;
+  transition: 1s;
+}
+.navbar {
+  display: inline-flex;
+  position: fixed;
+  flex-direction: column;
+  width: 40px;
+  height: 100%;
+  top: 0px;
+  left: -45px;
+  z-index: 3;
+  transition: 1s;
+}
+.navbar2::before{
+ content: '';
+ position: absolute; 
+ top: -100%;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(25deg, transparent, #ffffff36, transparent);
+ transition: 1s;
+}
+
+.navbar2:hover::before{
+
+top: 100%;
+
+}
+
+.navbar:hover + .navbar2::before{
+
+  top: 100%;
+
+}
+
+.navbar a {
+  margin: 20px 0px;
+  padding: 20px;
+}
+
+
+.Dark {
+  background: url(icons/Moon.svg) no-repeat;
+  background-size: 70%;
+  background-position: center center;
+  position: absolute;
+  bottom: 150px;
+  left: -5px ;
+  border: none;
+  animation: fade-in 1s forwards;
+  animation-delay: .5s;
+  width:  45px;
+  height: 45px;
+  -webkit-appearance: none;
+  outline: none;
+  border-radius: 50%;
+  transition: 0.5s;    
+  transform: rotate(125deg);
+
+  }
+  
+  
+  .Dark:checked{
+  
+  background: url(icons/SUN.svg  ) no-repeat;
+  background-position: center center;
+  background-size: 71%;
+  transform: rotate(0deg);
+  transition: 0.5s;
+  
+  
+  }
+  .Dark:checked:hover{
+
+    background: url(icons/SUN2.svg  ) no-repeat;
+    background-position: center center;
+    background-size: 71%;
+
+    transition: 0.5s;
+
+
+  }
+  .Dark:hover{
+
+    background: url(icons/Moon2.svg  ) no-repeat;
+    background-position: center center;
+    background-size: 70%;    
+    transition: 0.5s;
+
+
+  }
+
+  input[type="radio"].Home,
+  input[type="radio"].Vid,
+  input[type="radio"].Books,
+  input[type="radio"].About {
+  background-position: center center;
+  position: absolute;
+  left: -6px;
+  border: none;
+  width: 45px;
+  height: 45px;
+  -webkit-appearance: none;
+  outline: none;
+  border-radius: 50%;
+  transition: 0.5s;
+  justify-content: center;
+  text-align: center;
+}
+
+.Home{
+
+background: center url(icons/Home.svg) no-repeat;
+background-size: 80% ;
+top: 20px;
+}
+
+
+.Home:hover{
+
+animation: deg-anim .5s;
+transition: 1s ;
+background: center url(icons/Home\ Ac.svg) no-repeat;
+background-size: 82% ;
+
+}
+.Home:checked{
+
+  background: center url(icons/Home\ Ac.svg) no-repeat;
+  background-size: 82% ;
+
+}
+
+.Vid{
+
+background: center url(icons/Vid.svg) no-repeat;
+background-size: 80% ;
+top: 90px;
+}
+.Vid:hover{
+
+background: center url(icons/Vid\ Ac.svg) no-repeat;
+background-size: 82% ;
+animation: deg-anim .5s;
+transition: 1s ;
+
+}  
+
+.Vid:checked{
+
+  background: center url(icons/Vid\ Ac.svg) no-repeat;
+  background-size: 82% ;
+
+}
+
+.Books{
+
+background: center url(icons/Books.svg) no-repeat;
+background-size: 80% ;
+top: 160px;
+}
+
+.Books:hover{
+
+background: center url(icons/Books\ Ac.svg) no-repeat;
+background-size: 82% ;
+animation: deg-anim .5s;
+transition: 1s ;
+}    
+
+.Books:checked{
+
+background: center url(icons/Books\ Ac.svg) no-repeat;
+background-size: 82% ;
+  
+}
+
+.About{
+
+background: center url(icons/About.svg) no-repeat;
+background-size: 88% ;
+top: 230px;
+}
+
+.About:hover{
+
+background: center url(icons/About\ Ac.svg) no-repeat;
+background-size: 90% ;
+animation: deg-anim .5s;
+transition: 1s ;   
+    } 
+
+ .About:checked{
+
+background: center url(icons/About\ Ac.svg) no-repeat;
+background-size: 90% ;
+      
+    }
+
+
+.Menu{
+position: fixed;
+bottom: 50px;
+left: -5px;
+background: center url(icons/Menu.svg) no-repeat;
+background-size: 67% ;
+-webkit-appearance: none;
+outline: none;
+border: none;
+width: 45px;
+height: 45px;
+z-index: 5;
+transition: 1s ;  
+
+ }
+
+
+
+.Menu:checked{
+background: center url(icons/Menu\ Ac.svg) no-repeat;
+background-size: 69% ;
+transform: rotate(90deg) ;
+}
+
+
+
+
+
+@keyframes animated-gradient {
+  0% { color: #ffd166; }
+  33.33% { color: #073b4c; }
+  66.66% { color: #f07167; }
+  100% { color: #ffd166; }
+}
+
+@font-face {
+  font-family: Lodfont;
+  src: url(Fonts/DagonScale.ttf);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);
+       border-top: 16px groove #3498db; }
+
+  25%{  border-top:16px groove #ff9f00 ; }
+
+  50% {  border-top:16px groove #ff3f34; }
+
+  75% { border-top:16px groove #8338ec; }
+
+  100% { transform: rotate(360deg); 
+         border-top:16px groove #3498db;  }
+}
+
+@keyframes deg-anim{
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(25deg);
+  }
+      
+  50% {
+    transform: rotate(-25deg);
+  }
+          
+ 100% {
+    transform: rotate(0deg);
+  }
+}
